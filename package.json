@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://nightcreatures.ru/",
   "description": "Night Creatures — модульное креативное объединение. Одностраничный сайт на React, TypeScript, TailwindCSS и Framer Motion.",
   "scripts": {
     "dev": "vite",
