@@ -1,6 +1,7 @@
 import SectionHeading from './ui/SectionHeading'
 import Reveal from './ui/Reveal'
 import { founders } from '../data/site'
+import { asset } from '../lib/assets'
 
 export default function Founders() {
   return (
@@ -15,7 +16,7 @@ export default function Founders() {
                 <div className="grid h-full gap-0 sm:grid-cols-[minmax(0,11rem)_1fr] sm:items-stretch">
                   <div className="relative h-56 min-h-0 overflow-hidden sm:h-full">
                     <img
-                      src={f.image}
+                      src={asset(f.image)}
                       alt={f.name}
                       className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"

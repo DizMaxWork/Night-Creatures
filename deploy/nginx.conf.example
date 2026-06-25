@@ -1,0 +1,36 @@
+# Пример для VPS / Nginx. Скопируйте в sites-available и укажите root на папку dist.
+server {
+    listen 80;
+    listen [::]:80;
+    server_name nightcreatures.ru www.nightcreatures.ru;
+
+    root /var/www/nightcreatures/dist;
+    index index.html;
+
+    # Статика с долгим кэшем (имена файлов с хэшем в /assets/)
+    location /assets/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        try_files $uri =404;
+    }
+
+    location /images/ {
+        expires 1y;
+        add_header Cache-Control "public";
+        try_files $uri =404;
+    }
+
+    location ~* \.(ico|png|jpg|jpeg|webp|svg|woff2?)$ {
+        expires 1y;
+        add_header Cache-Control "public";
+        try_files $uri =404;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location = /index.html {
+        add_header Cache-Control "no-cache";
+    }
+}

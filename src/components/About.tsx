@@ -1,6 +1,7 @@
 import SectionHeading from './ui/SectionHeading'
 import Reveal from './ui/Reveal'
 import { about } from '../data/site'
+import { asset } from '../lib/assets'
 
 export default function About() {
   return (
@@ -11,7 +12,7 @@ export default function About() {
           <Reveal y={36} className="order-1 lg:order-none">
             <div className="grain relative overflow-hidden rounded-3xl border border-white/10 shadow-card">
               <img
-                src={about.image}
+                src={asset(about.image)}
                 alt="Презентация исследования Night Creatures"
                 className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-105"
                 loading="lazy"
